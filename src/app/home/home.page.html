@@ -1,0 +1,64 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title style="color: #964300; font-weight: 900; font-size: 22px;">
+      MascotaSocial
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline" style="color: #2C2F30;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-card style="border-radius: 16px;">
+    <ion-card-content>
+      <h2 style="font-weight: bold; color: #964300;">Explorar la Web</h2>
+      <div style="display: flex; gap: 8px; margin-top: 8px;">
+        <ion-input [(ngModel)]="urlText" placeholder="https://example.com" style="background: #f4f5f8; border-radius: 8px; padding-left: 10px;"></ion-input>
+        <ion-button (click)="openUrl()" style="--background: #964300; --border-radius: 12px;">Abrir</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <h1 style="font-weight: 800; color: #2C2F30; margin-left: 16px;">Novedades</h1>
+  
+  <div class="stories-container">
+    <div class="story-item">
+      <div class="story-circle-add">
+        <ion-icon name="add" style="color: #964300; font-size: 32px;"></ion-icon>
+      </div>
+      <p>Tu historia</p>
+    </div>
+    
+    <div class="story-item" *ngFor="let photo of photos">
+      <div class="story-circle">
+        <img [src]="photo.url" />
+      </div>
+      <p>{{ photo.category }}</p>
+    </div>
+  </div>
+
+  <ion-card *ngFor="let photo of photos" style="border-radius: 16px;">
+    <ion-item lines="none">
+      <ion-avatar slot="start" style="background: #F9873E;"></ion-avatar>
+      <ion-label>
+        <h2><b>Usuario_Pet</b></h2>
+        <p>Hace 2 horas</p>
+      </ion-label>
+    </ion-item>
+
+    <img [src]="photo.url" style="width: 100%; height: auto; max-height: 400px; object-fit: contain; background: black;" />
+
+    <ion-row style="padding: 8px;">
+      <ion-col size="auto"><ion-icon name="heart-outline" style="font-size: 24px; color: gray;"></ion-icon></ion-col>
+      <ion-col size="auto"><ion-icon name="chatbubble-outline" style="font-size: 24px; color: gray;"></ion-icon></ion-col>
+      <ion-col size="auto"><ion-icon name="share-social-outline" style="font-size: 24px; color: gray;"></ion-icon></ion-col>
+    </ion-row>
+
+    <ion-card-content style="padding-top: 0;">
+      <p style="font-size: 14px; color: #000;">¡Mirad qué guapo está hoy! #mascotas #amor</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "MascotaSocial",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

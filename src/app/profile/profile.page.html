@@ -1,0 +1,76 @@
+<ion-content color="light">
+  <div style="background: white; padding: 24px 16px 16px 16px;">
+    
+    <ion-row class="ion-align-items-center ion-justify-content-between">
+      <ion-col size="auto">
+        <div style="width: 88px; height: 88px; border-radius: 50%; background: #F9873E; padding: 3px;">
+          <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=200" 
+               style="width: 100%; height: 100%; border-radius: 50%; border: 2px solid white; object-fit: cover;" />
+        </div>
+      </ion-col>
+      
+      <ion-col style="text-align: center;">
+        <h2 style="margin: 0; font-weight: bold; font-size: 18px;">124</h2>
+        <p style="margin: 0; color: gray; font-size: 12px;">Posts</p>
+      </ion-col>
+      <ion-col style="text-align: center;">
+        <h2 style="margin: 0; font-weight: bold; font-size: 18px;">1.5k</h2>
+        <p style="margin: 0; color: gray; font-size: 12px;">Seguidores</p>
+      </ion-col>
+      <ion-col style="text-align: center;">
+        <h2 style="margin: 0; font-weight: bold; font-size: 18px;">432</h2>
+        <p style="margin: 0; color: gray; font-size: 12px;">Siguiendo</p>
+      </ion-col>
+    </ion-row>
+
+    <div style="margin-top: 16px;">
+      <h2 style="margin: 0; font-size: 20px; font-weight: 900; color: #2C2F30;">
+        {{ profile.ownerName }} & {{ profile.petName }}
+      </h2>
+      <p style="margin: 4px 0 12px 0; font-size: 16px; font-weight: bold; color: #964300;">
+        {{ profile.breed }} 🐾
+      </p>
+
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; color: gray; font-size: 14px;">
+        <ion-icon name="location" style="color: #964300;"></ion-icon> {{ profile.location }}
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; color: gray; font-size: 14px;">
+        <ion-icon name="mail" style="color: #964300;"></ion-icon> {{ profile.email }}
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px; color: gray; font-size: 14px;">
+        <ion-icon name="call" style="color: #964300;"></ion-icon> {{ profile.phone }}
+      </div>
+    </div>
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="goToEditProfile()" style="--background: #964300; --border-radius: 12px; font-weight: bold;">
+          <ion-icon name="create" slot="start"></ion-icon> Editar perfil
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" fill="outline" style="--color: #964300; --border-color: #964300; --border-radius: 12px; font-weight: bold;">
+          <ion-icon name="share-social" slot="start"></ion-icon> Compartir
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-segment [(ngModel)]="selectedTab" style="background: white; --indicator-color: transparent;">
+    <ion-segment-button value="grid">
+      <ion-icon name="grid" [style.color]="selectedTab === 'grid' ? '#964300' : 'gray'"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="videos">
+      <ion-icon name="play-circle" [style.color]="selectedTab === 'videos' ? '#964300' : 'gray'"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="tags">
+      <ion-icon name="person-pin" [style.color]="selectedTab === 'tags' ? '#964300' : 'gray'"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;" *ngIf="selectedTab === 'grid'">
+    <div *ngFor="let photo of photos">
+      <img [src]="photo.url" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block;" />
+    </div>
+  </div>
+</ion-content>

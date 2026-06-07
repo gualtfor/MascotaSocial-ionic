@@ -1,0 +1,55 @@
+<ion-content [fullscreen]="true" scroll-y="false">
+  
+  <div class="top-overlay">
+    <h2>Videos</h2>
+    <ion-icon name="search"></ion-icon>
+  </div>
+
+  <div class="video-pager">
+    
+    <div class="video-page" *ngFor="let photo of photos; let i = index">
+      
+      <video 
+        #videoPlayer
+        [src]="getVideoUrl(i)" 
+        (click)="togglePlay(videoPlayer)"
+        loop playsinline>
+      </video>
+
+      <div class="right-actions">
+        <div class="profile-action">
+          <div class="profile-img-container"></div>
+          <div class="plus-badge"><ion-icon name="add"></ion-icon></div>
+        </div>
+
+        <div class="action-btn">
+          <ion-icon name="heart"></ion-icon>
+          <span>{{ photo.likes }}</span>
+        </div>
+        <div class="action-btn">
+          <ion-icon name="chatbubble"></ion-icon>
+          <span>124</span>
+        </div>
+        <div class="action-btn">
+          <ion-icon name="share-social"></ion-icon>
+          <span>Share</span>
+        </div>
+        
+        <div class="music-disc">
+          <ion-icon name="musical-notes"></ion-icon>
+        </div>
+      </div>
+
+      <div class="bottom-info">
+        <h3>@Usuario_Pet</h3>
+        <p>¡Mirad qué salto! Mi mascota es un atleta profesional 🐾 #mascotas</p>
+        <div class="music-info">
+          <ion-icon name="musical-notes"></ion-icon>
+          <span>Audio original - MascotaSocial</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</ion-content>

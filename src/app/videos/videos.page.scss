@@ -1,0 +1,78 @@
+.top-overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  color: white;
+}
+.top-overlay h2 { margin: 0; font-weight: bold; font-size: 20px; }
+.top-overlay ion-icon { font-size: 24px; }
+
+.video-pager {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  background: black;
+}
+.video-pager::-webkit-scrollbar { display: none; }
+
+.video-page {
+  height: 100%;
+  width: 100%;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.right-actions {
+  position: absolute;
+  bottom: 80px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  color: white;
+}
+
+.profile-action { position: relative; margin-bottom: 8px; }
+.profile-img-container {
+  width: 48px; height: 48px;
+  border-radius: 50%; border: 2px solid white;
+  background: #F9873E;
+}
+.plus-badge {
+  position: absolute; bottom: -8px; left: 14px;
+  width: 20px; height: 20px;
+  background: red; border-radius: 50%;
+  display: flex; justify-content: center; align-items: center; font-size: 14px;
+}
+
+.action-btn { display: flex; flex-direction: column; align-items: center; font-size: 12px; font-weight: bold;}
+.action-btn ion-icon { font-size: 32px; margin-bottom: 4px; }
+
+.music-disc {
+  width: 40px; height: 40px; border-radius: 50%; background: #333;
+  display: flex; justify-content: center; align-items: center; margin-top: 8px;
+}
+
+.bottom-info {
+  position: absolute;
+  bottom: 20px;
+  left: 16px;
+  right: 80px;
+  color: white;
+}
+.bottom-info h3 { margin: 0 0 8px 0; font-weight: bold; font-size: 16px;}
+.bottom-info p { margin: 0 0 12px 0; font-size: 14px; line-height: 1.3;}
+.music-info { display: flex; align-items: center; gap: 4px; font-size: 13px;}

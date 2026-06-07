@@ -1,0 +1,30 @@
+<ion-content color="light">
+  <div style="padding: 16px;">
+    <h1 style="font-size: 32px; font-weight: 800; color: #2C2F30; margin: 0;">Fotos</h1>
+    <p style="color: #595C5D; font-weight: 500;">Capturando los mejores momentos de tus amigos peludos.</p>
+  </div>
+
+  <div class="categories-container">
+    <div 
+      *ngFor="let category of categories" 
+      class="category-chip"
+      [class.active]="activeCategory === category"
+      (click)="setCategory(category)">
+      {{ category }}
+    </div>
+  </div>
+
+  <div class="masonry-grid">
+    <div class="masonry-item" *ngFor="let photo of filteredPhotos">
+      <img [src]="photo.url" [alt]="photo.alt" />
+      
+      <div class="top-badge" *ngIf="photo.isTop">
+        <ion-icon name="star"></ion-icon> TOP
+      </div>
+
+      <div class="bottom-likes">
+        <ion-icon name="heart"></ion-icon> {{ photo.likes }}
+      </div>
+    </div>
+  </div>
+</ion-content>
